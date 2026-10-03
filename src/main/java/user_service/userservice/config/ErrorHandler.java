@@ -12,7 +12,7 @@ public class ErrorHandler {
     public ResponseEntity<ResponseHandler> internalServerError(Exception e) {
         return new ResponseEntity<>(
             new ResponseHandler(
-                "Internal server error",
+                e.getMessage(),
                 HttpStatus.INTERNAL_SERVER_ERROR,
                 null
             ),

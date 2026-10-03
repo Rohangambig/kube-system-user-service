@@ -11,6 +11,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
 import java.util.UUID;
 
 @Entity
@@ -19,7 +23,7 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor 
 @NoArgsConstructor 
-public class UserModel {
+public class UserModel implements UserDetails {
 
     @Id 
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -39,5 +43,17 @@ public class UserModel {
         this.uname = uname;
         this.email = email;
         this.password = password;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getAuthorities'");
+    }
+
+    @Override
+    public String getUsername() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getUsername'");
     }
 }
